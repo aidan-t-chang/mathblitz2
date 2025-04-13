@@ -1,0 +1,15 @@
+body {
+    background-image: url("imgs/mbg.png");
+}
+
+p {
+    color: red;
+}
+
+.centered {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+
