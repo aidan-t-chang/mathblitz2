@@ -3,7 +3,7 @@ body {
 }
 
 p {
-    color: red;
+    color: blue;
 }
 
 .centered {
@@ -12,4 +12,20 @@ p {
     text-align: center;
 }
 
+h1 {
+    color: orangered;
+}
 
+ul {
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: stretch;
+    display: flex;
+}
+
+li {
+    margin-left: 5px;
+    margin-right: 5px;
+}
