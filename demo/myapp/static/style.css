@@ -1,3 +1,9 @@
+/* Quest Gray #A8A7A7
+   Middle Safflower #CC527A
+   Ruby Dust #E8175D
+   Wood Charcoal #474747
+   Dark Grey #363636 */
+
 body {
     background-image: url("imgs/mbg.png");
 }
@@ -28,4 +34,25 @@ ul {
 li {
     margin-left: 5px;
     margin-right: 5px;
+    text-decoration: none;
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.compete {
+    margin-left: 50px;
+    margin-right: 25px;
+    text-decoration: none;
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.nav-link {
+    text-decoration: none;
 }
