@@ -10,6 +10,7 @@ body {
 
 p {
     color: blue;
+    margin: 10px 0;
 }
 
 .centered {
@@ -32,14 +33,15 @@ ul {
 }
 
 li {
-    margin-left: 5px;
-    margin-right: 5px;
     text-decoration: none;
     font-size: 30px;
-    border: 1px solid black;
     padding: 5px;
     background-color: grey;
-    border-radius: 5px;
+}
+
+li:hover {
+    transition-duration: 500ms;
+    background-color: #474747;
 }
 
 .compete {
@@ -49,10 +51,97 @@ li {
     font-size: 30px;
     border: 1px solid black;
     padding: 5px;
-    background-color: grey;
+    background-color: #E8175D;
     border-radius: 5px;
+}
+
+.compete:hover {
+    background-color: #E8175D;
+}
+
+.compete-nav {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  color: white;
+}
+
+.compete-nav:hover {
+  animation: color-wheel80 5s linear infinite;
+  text-decoration: none;
+}
+
+@keyframes color-wheel80 {
+  0% { color: #ffffff; }
+  14% { color: #ff0000; }
+  28% { color: #ff7f00; }
+  42% { color: #ffff00; }
+  57% { color: #00ff00; }
+  71% { color: #0000ff; }
+  85% { color: #4b0082; }
+  100% { color: #8b00ff; }
 }
 
 .nav-link {
     text-decoration: none;
+}
+
+.card-top {
+    border-radius: 10px 10px 0px 0px;
+    width: 80%;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    text-align: center;
+    background-color: #CC527A;
+    height: 2.5em;
+    box-shadow: 0 0px 80px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content {
+    border-radius: 0px 0px 10px 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #363636;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.link-80 {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+}
+
+.link-80:hover {
+  animation: color-wheel80 5s linear infinite;
+}
+
+@keyframes color-wheel80 {
+  0% { color: #ffffff; }
+  14% { color: #ff0000; }
+  28% { color: #ff7f00; }
+  42% { color: #ffff00; }
+  57% { color: #00ff00; }
+  71% { color: #0000ff; }
+  85% { color: #4b0082; }
+  100% { color: #8b00ff; }
 }
