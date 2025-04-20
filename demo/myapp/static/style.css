@@ -68,7 +68,7 @@ li a {
 
 li:hover {
     transition-duration: 500ms;
-    background-color: #474747;
+    font-size: 31px;
 }
 
 .compete {
@@ -79,6 +79,8 @@ li:hover {
     background-color: #E8175D;
     border-radius: 5px;
     text-align: center;
+    box-shadow: 0 0px 80px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+
 }
 
 .compete a {
