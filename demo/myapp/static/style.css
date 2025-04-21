@@ -9,7 +9,9 @@ nav {
   margin: auto;
 }
 body {
-    background-image: url("imgs/mbg.png");
+    background-image: url("imgs/newnewmbg.png");
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 p {
