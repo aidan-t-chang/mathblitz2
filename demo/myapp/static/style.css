@@ -20,7 +20,7 @@ p {
 }
 
 h2 {
-  margin-top: 10px;
+  margin-top: 0.5em;
 }
 
 .centered {
@@ -196,6 +196,11 @@ li:hover {
   width: 33.33%;
 }
 
+.columnmid {
+  float: left;
+  width: 33.33%;
+}
+
 .columnleft {
   float: left;
   width: 33%;
@@ -210,4 +215,8 @@ li:hover {
 
 .row {
   width: 100%;
+}
+
+select {
+  margin-top: 2em;
 }
