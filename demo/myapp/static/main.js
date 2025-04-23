@@ -96,7 +96,7 @@ function getUsername() {
     dave = document.createElement('h2');
     dave.textContent = player_username;
     document.getElementById('columnmid').innerHTML = "";
-    document.getElementById('columnmid').appendChild('dave');
+    document.getElementById('columnmid').appendChild(dave);
 }
 
 getUsername();
