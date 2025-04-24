@@ -92,6 +92,8 @@ function getStats(option) {
     }
 }
 
+getStats(1);
+
 function getUsername() {
     dave = document.createElement('h2');
     dave.textContent = player_username;

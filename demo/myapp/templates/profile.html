@@ -2,21 +2,39 @@
 {% block content %} <p class="title">Profile</p> {% endblock %}
 {% block content2 %} 
 <div class="row">
-    <div class="column">
+    <div class="column" id="column">
         <select id="options">
-            <option value="none" selected disabled hidden>Select a Gamemode</option>
             <option value="option1">Total</option>
             <option value="option2">Ranked</option>
             <option value="option3">Casual</option>
         </select>
         <label for="options">Stats</label>
-        <div id="content"></div>
+        <div class="stats" id="content"></div>
+        <h2>Display Stats</h2>
+        <label for="statistics">1. </label><select class="statistics">
+            <option>175 Games Played</option>
+            <option>150 Wins</option>
+            <option>6 W/L Ratio</option>
+        </select><br>
+        <label for="statistics">2. </label><select class="statistics">
+            <option>175 Games Played</option>
+            <option>150 Wins</option>
+            <option>6 W/L Ratio</option>
+        </select><br>
+        <label for="statistics">3. </label><select class="statistics">
+            <option>175 Games Played</option>
+            <option>150 Wins</option>
+            <option>6 W/L Ratio</option>
+        </select>
+
     </div>
-    <div class="columnmid" id="columnmid">
+    <div class="columnmid" id="columnmid"> 
         <h2 class="get"></h2>
     </div>
     <div class="columnleft">
-        <p>testing testing interesting</p><br><br><br><br><p>hj</p>
+        <div class="scroll-content">
+            <p>Icons</p><br><br><br><br><br><br><br><br><br><br><br><br><p>Banners</p><br><br><br><br><br><br><br><br><br><br><br><br><p>Badges</p>
+        </div>
     </div>
 </div> 
 {% endblock %}
