@@ -207,6 +207,7 @@ li:hover {
   border-left: 1.5px solid black;
   overflow-y: scroll;
   overflow-x: hidden;
+  scrollbar-width: thin;
 }
 
 .row:after {
@@ -229,4 +230,15 @@ select {
 
 .stats {
   border-bottom: 1px solid black;
+}
+
+.scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 40px;
+  border: 1px solid black;
+  width: 60%;
+  margin: auto;
+  border-radius: 5px;
+  scrollbar-width: thin;;
 }
