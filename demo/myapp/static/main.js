@@ -102,3 +102,24 @@ function getUsername() {
 }
 
 getUsername();
+const socket = new WebSocket('ws://' + window.location.host + '/ws/some_path/');
+
+socket.onopen = function(e) {
+    console.log('WebSocket connection established');
+    socket.send(JSON.stringify({
+        'message': 'Hello, WebSocket!'
+    }));
+};
+
+socket.onmessage = function(e) {
+    const data = JSON.parse(e.data);
+    console.log('Message received:', data);
+};
+
+socket.onclose = function(e) {
+    console.log('WebSocket connection closed');
+};
+
+socket.onerror = function(e) {
+    console.error('WebSocket error:', e);
+};
