@@ -12,24 +12,6 @@ var caswins = 29;
 var caslosses = 20;
 var fastestroundc = 35;
 
-document.getElementById("options").addEventListener("change", function() {
-    let selectedValue = this.value;
-    let contentDiv = document.getElementById("content");
-
-    switch(selectedValue) {
-        case "option1":
-            getStats(1);
-            break;
-        case "option2":
-            getStats(2); 
-            break;
-        case "option3":
-            getStats(3);
-            break;
-        default:
-            contentDiv.textContent = "Selected option will appear here.";
-    }
-});
 
 function getStats(option) {
     document.getElementById('content').innerHTML = '';
@@ -92,7 +74,6 @@ function getStats(option) {
     }
 }
 
-getStats(1);
 
 function getUsername() {
     dave = document.createElement('h2');
@@ -101,7 +82,10 @@ function getUsername() {
     document.getElementById('columnmid').appendChild(dave);
 }
 
-getUsername();
+if (window.location.href.includes("profile")) {
+    getUsername();
+    getStats(1);
+}
 const socket = new WebSocket('ws://' + window.location.host + '/ws/some_path/');
 
 socket.onopen = function(e) {
