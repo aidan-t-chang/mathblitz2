@@ -1,7 +1,11 @@
 from django.db import models
+import random
 
 # Create your models here.
-class TodoItem(models.Model):
-    title = models.CharField(max_length=200)
-    completed = models.BooleanField(default=False)
+class Problem(models.Model):
+    question = models.TextField()
+    answer = models.IntegerField()
     
+    def __str__(self):
+        return self.question 
+ 
