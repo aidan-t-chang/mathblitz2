@@ -77,6 +77,30 @@ DATABASES = {
         'PASSWORD': 'djangouser',
         'HOST': 'localhost',
         'PORT': '5432',
+    },
+    "subtraction": {
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': 'subtraction',
+        'USER': 'djangouser',
+        'PASSWORD': 'djangouser',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+    "addition": {
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': 'addition',
+        'USER': 'djangouser',
+        'PASSWORD': 'djangouser',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+    "multiplication": {
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': 'multiplication',
+        'USER': 'djangouser',
+        'PASSWORD': 'djangouser',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

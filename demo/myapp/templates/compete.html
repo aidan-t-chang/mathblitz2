@@ -1,2 +1,11 @@
 {% extends "base.html" %} {% block title %}welcome welcome{% endblock %}
-{% block content %} aslkdjfasdf {% endblock %}
+{% block content %} Compete{% endblock %}
+{% block content2 %} 
+<ul>
+    {% for item in items %}
+    <li>
+        {{ item.question }} {{ item.answer }}
+    </li><br>
+    {% endfor %}
+</ul>
+{% endblock %}
