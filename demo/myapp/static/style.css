@@ -242,3 +242,21 @@ select {
   border-radius: 5px;
   scrollbar-width: thin;;
 }
+
+.question-p {
+  font-size: 40px;
+}
+
+.answer {
+  border: 1px solid black;
+  border-radius: .5em;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 5px;
+  width: 20%;
+}
+
+.quiz-container {
+  width: 50%;
+}

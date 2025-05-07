@@ -1,11 +1,57 @@
-{% extends "base.html" %} {% block title %}welcome welcome{% endblock %}
+{% extends "base.html" %} {% block title %}Mathblitz{% endblock %}
 {% block content %}Compete{% endblock %}
-{% block content2 %} 
-<ul>
-    {% for item in items %}
-    <li>
-        {{ item.question }} {{ item.answer }}
-    </li><br>
+{% block content2 %}
+
+<div class="quiz-container">
+    {% for question in questions %}
+    <div class="options" id="question-{{ question.id }}" {% if not forloop.first %}style="display: none;"{% endif %}>
+        <p class="question-p">{{ question.question }}</p>
+        <div class="top">
+            <a href="#" style="display:inline-block;" class="answer">{{question.answers.0.text}}</a>
+            <a href="#" style="display:inline-block;" class="answer">{{question.answers.1.text}}</a>
+        </div>
+        <div class="bottom">
+            <a href="#" style="display:inline-block;" class="answer">{{question.answers.2.text}}</a>
+            <a href="#" style="display:inline-block;" class="answer">{{question.answers.3.text}}</a>
+        </div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+
+<script>
+    let currentScore = 0;
+    
+    function handleAnswer(isCorrect, questionId, totalQuestions) {
+        if (isCorrect) {
+            correct();
+            currentScore++;
+        } else {
+            wrong();
+        }
+        
+        // Move to next question or show results
+        document.getElementById('question-' + questionId).style.display = 'none';
+        
+        if (questionId < totalQuestions) {
+            document.getElementById('question-' + (questionId + 1)).style.display = 'block';
+        } else {
+            // Show final results
+            document.getElementById('score').textContent = currentScore;
+            document.getElementById('quiz-results').style.display = 'block';
+        }
+    }
+
+    function correct() {
+        // Add visual feedback for correct answer
+        alert("Correct answer!");
+        // You could replace this with a nicer UI feedback
+    }
+
+    function wrong() {
+        // Add visual feedback for wrong answer
+        alert("Wrong answer!");
+        // You could replace this with a nicer UI feedback
+    }
+</script>
+
 {% endblock %}

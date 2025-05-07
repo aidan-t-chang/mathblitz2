@@ -10,11 +10,32 @@ def profile(request):
 
 def compete(request):
     visit = set()
-    c = []
-    for i in range(10):
-        j = random.randrange(0, 1000)
-        visit.add(j)
-        c.append(Problem.objects.all()[j])
+    questions = []
+    all = Problem.objects.all()
     
-    context = {'items': c}
-    return render(request, "compete.html", context)
+    for _ in range(10):
+        qidx = random.randrange(0, len(all))
+        while qidx in visit:
+            qidx = random.randrange(0, len(all))
+        visit.add(qidx)
+        q = all[qidx]
+        answers = [
+        {"text": q.answer, "is_correct": True},
+        {"text": q.wa1, "is_correct": False},
+        {"text": q.wa2, "is_correct": False},
+        {"text": q.wa3, "is_correct": False}
+        ]
+        
+        random.shuffle(answers)
+        
+        questions.append({
+            "id": len(questions) + 1,
+            "question": q.question,
+            "answers": answers
+        })
+    
+    context = {
+        'questions': questions
+    }
+    return render(request, "compete.html", context)       
+    

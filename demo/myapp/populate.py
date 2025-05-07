@@ -17,10 +17,16 @@ def populate_addition_easy():
         if q not in visit:
             math_problems.append(new)
         
-    Problem.objects.bulk_create([
-        Problem(**problem) for problem in math_problems
-    ])
-    Problem.objects.all().delete()
+    Problem.objects.using('addition').bulk_create([
+    Problem(
+        question=problem['question'],
+        answer=problem['answer'],
+        wa1=problem['wa1'],
+        wa2=problem['wa2'],
+        wa3=problem['wa3']
+    ) for problem in math_problems
+    ]) 
+    
     
     
 def populate_subtraction_easy():
@@ -34,9 +40,14 @@ def populate_subtraction_easy():
             math_problems.append(new)
             
     Problem.objects.using('subtraction').bulk_create([
-        Problem(**problem) for problem in math_problems
-    ])   
-    Problem.objects.all().delete()
+    Problem(
+        question=problem['question'],
+        answer=problem['answer'],
+        wa1=problem['wa1'],
+        wa2=problem['wa2'],
+        wa3=problem['wa3']
+    ) for problem in math_problems
+    ]) 
 
 def populate_multiplication_easy():
     math_problems = []
@@ -49,13 +60,19 @@ def populate_multiplication_easy():
             math_problems.append(new)
             
     Problem.objects.using('multiplication').bulk_create([
-        Problem(**problem) for problem in math_problems
-    ])    
-    Problem.objects.all().delete()
+    Problem(
+        question=problem['question'],
+        answer=problem['answer'],
+        wa1=problem['wa1'],
+        wa2=problem['wa2'],
+        wa3=problem['wa3']
+    ) for problem in math_problems
+    ])         
+    
 
 populate_addition_easy()
 populate_subtraction_easy()
-populate_multiplication_easy()
+# populate_multiplication_easy()
 print('successfully populated!')
 
         
