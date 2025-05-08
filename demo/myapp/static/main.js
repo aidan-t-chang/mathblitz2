@@ -108,4 +108,29 @@ socket.onerror = function(e) {
     console.error('WebSocket error:', e);
 };
 
+let curScore = 0;
+function handleAnswer(qId, isACorrect, totalQuestions) {
+    if (isACorrect) {
+        curScore++;
+        console.log('right');
+        goNext();
+    }
+    else {
+        console.log('wrong');
+        setTimeout(goNext, 1000);
+    }
 
+    function goNext() {
+        document.getElementById('question-' + qId).style.display = 'none';
+        if (qId< totalQuestions) {
+            document.getElementById('question-' + (qId+ 1)).style.display = 'block';
+        }
+        else {
+            document.getElementById('question-' + qId).style.display = 'none';
+        }       
+    }
+}
+
+function countDown() {
+    
+}

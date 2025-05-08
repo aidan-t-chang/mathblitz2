@@ -255,8 +255,11 @@ select {
   padding-right: 15px;
   margin-top: 5px;
   width: 20%;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .quiz-container {
   width: 50%;
+  margin-bottom: 1em;
 }
