@@ -13,7 +13,7 @@ def compete(request):
     questions = []
     all = Problem.objects.all()
     
-    for _ in range(10):
+    for _ in range(200):
         qidx = random.randrange(0, len(all))
         while qidx in visit:
             qidx = random.randrange(0, len(all))

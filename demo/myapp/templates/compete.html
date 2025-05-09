@@ -2,9 +2,11 @@
 {% block content %}Compete{% endblock %}
 {% block content2 %}
 
-<div class="quiz-container">
+<h1 id="time">Ready?</h1>
+<progress value="7500" max="7500" id="progress" class="progress" style="display:none;"></progress>
+<div class="quiz-container" id="quiz-container" style="display:block;">
     {% for question in questions %}
-    <div class="options" id="question-{{ question.id }}">
+    <div class="options" id="question-{{ question.id }}" style="display:none;">
         <p class="question-p">{{ question.question }}</p>
         <div class="top">
             <a href="#" style="display:inline-block;" class="answer" id="1"
@@ -20,6 +22,14 @@
         </div>
     </div>
     {% endfor %}
+</div>
+
+<div class="result-container" id="result-container" style="display:none;">
+    <h1 id="result">Match Complete</h1>
+    <p id="qAnswered"></p>
+    <p id="qCorrect"></p>
+    <p id="qWrong"></p>
+    <p id="avg-time-taken"></p>
 </div>
 
 {% endblock %}

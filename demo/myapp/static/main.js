@@ -107,30 +107,103 @@ socket.onclose = function(e) {
 socket.onerror = function(e) {
     console.error('WebSocket error:', e);
 };
+var correctAnswers = 0;
+var wrongAnswers = 0;
+var questionsAnswered = 0;
+var averageTimeTaken = 0;
+var totalTimeTaken = 0;
 
-let curScore = 0;
+var questionStartTimes = {};
 function handleAnswer(qId, isACorrect, totalQuestions) {
+    const endTime = Date.now();
+    const startTime = questionStartTimes[qId];
+    const timeTaken = (endTime - startTime) / 1000;
+    totalTimeTaken += timeTaken;
+    questionsAnswered++;
     if (isACorrect) {
-        curScore++;
+        correctAnswers++;
         console.log('right');
         goNext();
     }
     else {
         console.log('wrong');
+        wrongAnswers++;
         setTimeout(goNext, 1000);
     }
 
     function goNext() {
         document.getElementById('question-' + qId).style.display = 'none';
         if (qId< totalQuestions) {
-            document.getElementById('question-' + (qId+ 1)).style.display = 'block';
+            document.getElementById('question-' + (qId + 1)).style.display = 'block';
+            questionStartTimes[qId + 1] = Date.now();
         }
         else {
             document.getElementById('question-' + qId).style.display = 'none';
         }       
     }
 }
+function countDown(duration, display) {
+    var timer = duration, seconds;
+    var intervalId = setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        display.textContent = seconds;
 
-function countDown() {
-    
+        if (--timer < 0) {
+            document.getElementById("time").style.display = "none";
+            document.getElementById('question-1').style.display = 'block';
+            cdBar();
+            document.getElementById('progress').style.display = 'block';
+            clearInterval(intervalId);
+        }
+    }, 1000);
 }
+
+function cdBar() {
+    var timer = 7500;
+    var intervalId = setInterval(function() {
+        document.getElementById('progress').value = timer; 
+
+        if (--timer < 0) {
+            clearInterval(intervalId);
+            endGame();
+        }
+    })
+}
+function endGame() {
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('progress').style.display = 'none';
+    averageTimeTaken = totalTimeTaken / questionsAnswered;
+    document.getElementById('qAnswered').textContent = "Questions Answered: " + questionsAnswered;
+    document.getElementById('qCorrect').textContent = "Correct Answers: " + correctAnswers;
+    document.getElementById('qWrong').textContent = "Wrong Answers: " + wrongAnswers;
+    document.getElementById('avg-time-taken').textContent = "Average Time Taken: " + averageTimeTaken.toFixed(2) + " seconds";
+    document.getElementById('result-container').style.display = 'block';
+}
+
+if (window.location.href.includes("compete")) {
+    questionStartTimes[1] = Date.now();
+    countDown(3, document.querySelector("#time"));
+}
+
+var keybind_tl = 'd';
+var keybind_tr = 'f';
+var keybind_bl = 'j';
+var keybind_br = 'k';
+document.addEventListener('keydown', function(event) {
+    const keyToAnswerId = {
+        [keybind_tl]: '1',
+        [keybind_tr]: '2',
+        [keybind_bl]: '3',
+        [keybind_br]: '4'
+    };
+
+    if (keyToAnswerId[event.key]) {
+        if (document.getElementById('quiz-container').style.display === 'block') {
+            console.log(event.key);
+            const answerElement = document.getElementById(keyToAnswerId[event.key]);
+            if (answerElement) {
+                answerElement.click();
+            }
+        }
+    }
+});

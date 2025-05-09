@@ -263,3 +263,7 @@ select {
   width: 50%;
   margin-bottom: 1em;
 }
+
+.progress {
+  width: 60%;
+}
