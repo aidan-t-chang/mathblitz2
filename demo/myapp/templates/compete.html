@@ -9,15 +9,15 @@
     <div class="options" id="question-{{ question.id }}" style="display:none;">
         <p class="question-p">{{ question.question }}</p>
         <div class="top">
-            <a href="#" style="display:inline-block;" class="answer" id="1"
+            <a href="#" style="display:inline-block;" class="answer" id="q{{question.id}}-1"
             onclick="handleAnswer({{question.id}}, {{question.answers.0.is_correct|lower}}, {{ questions|length}})">{{question.answers.0.text}}</a>
-            <a href="#" style="display:inline-block;" class="answer" id="2"
+            <a href="#" style="display:inline-block;" class="answer" id="q{{question.id}}-2"
             onclick="handleAnswer({{question.id}}, {{question.answers.1.is_correct|lower}}, {{ questions|length }})">{{question.answers.1.text}}</a>
         </div>
         <div class="bottom">
-            <a href="#" style="display:inline-block;" class="answer" id="3"
+            <a href="#" style="display:inline-block;" class="answer" id="q{{question.id}}-3"
             onclick="handleAnswer({{question.id}}, {{question.answers.2.is_correct|lower}}, {{questions|length}})">{{question.answers.2.text}}</a>
-            <a href="#" style="display:inline-block;" class="answer" id="4"
+            <a href="#" style="display:inline-block;" class="answer" id="q{{question.id}}-4"
             onclick="handleAnswer({{question.id}}, {{question.answers.3.is_correct|lower}}, {{questions|length}})">{{question.answers.3.text}}</a>
         </div>
     </div>

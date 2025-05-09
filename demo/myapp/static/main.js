@@ -198,9 +198,10 @@ document.addEventListener('keydown', function(event) {
     };
 
     if (keyToAnswerId[event.key]) {
-        if (document.getElementById('quiz-container').style.display === 'block') {
-            console.log(event.key);
-            const answerElement = document.getElementById(keyToAnswerId[event.key]);
+        const visibleQuestion = document.querySelector('.options[style*="display: block"]');
+        if (visibleQuestion) {
+            const questionId = visibleQuestion.id.split('-')[1];
+            const answerElement = document.getElementById(`q${questionId}-${keyToAnswerId[event.key]}`);
             if (answerElement) {
                 answerElement.click();
             }
